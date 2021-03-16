@@ -1,17 +1,18 @@
 import { Route, Redirect } from "react-router-dom"
-import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
-import { userStorageKey } from "./auth/authSettings"
+import { Login } from "./components/auth/Login.js"
+import { Register } from "./components/auth/Register.js"
+import { userStorageKey } from "./components/auth/authSettings.js"
 import './App.css';
 
 export const App = () => (
+  
   <>
 
 <Route render={() => {
         if (sessionStorage.getItem(userStorageKey)) {
           return (
             <>
-              //Components that are rendered when the user is authenticated go inside this React fragment
+              <h3>dude, where's my stuff?</h3>
             </>
           )
         } else {
