@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "email": "tracy@me.com",
+      "name": "Tracy Depp",
+      "id": 1
+    }
+  ],
+  "friends": [],
+  "items": [],
+  "categories": []
+}
