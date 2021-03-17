@@ -6,13 +6,13 @@ import { useHistory } from "react-router-dom"
 
 export const FriendList = () => {
 
-  //  // The useHistory hook tells React which route to visit. Tells React to render the location form component.
+  //  // The useHistory hook tells React which route to visit. Tells React to render the friend form component (not added yet)
   const history = useHistory()
 
     // This state changes when `getFriends()` is invoked below
     const { friends, getFriends } = useContext(FriendsContext)
   
-    //useEffect - reach out to the world for something - API call for the friends; wil only run one time at intial render because array is empty
+    //useEffect - reach out to the world for something - API call for the friends; will only run one time at intial render because array is empty
     useEffect(() => {
       console.log("FriendList: useEffect - getFriends")
       getFriends()
@@ -21,7 +21,7 @@ export const FriendList = () => {
   
   
     return (
-        <div className="items">
+        <div className="friends">
             <h3>My Friends</h3>
           {console.log("FriendsList: Render", friends)}
 
@@ -29,7 +29,7 @@ export const FriendList = () => {
           
             {
             friends.map((friend) => {
-              //   key and item become properties on the object passed in as in argument
+              //   key and friend become properties on the object passed in as in argument
               return <FriendCard key={friend.id} friend={friend} />
             })
         }
