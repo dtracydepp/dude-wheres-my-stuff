@@ -30,6 +30,12 @@ export const FriendList = () => {
       <option value="0">Select a friend</option>
     {/* Not sure on getting date, need to add getFriendbyId */}
       </select>
+      {
+            friends.map((friend) => {
+              //   key and item become properties on the object passed in as in argument
+              return <FriendCard key={friend.id} friend={friend} />
+            })
+        }
     </div>
   )
 
