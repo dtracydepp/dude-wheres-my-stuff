@@ -16,6 +16,11 @@ export const ItemProvider = (props) => {
         .then(setItems)
     }
 
+    const getItemById = (id) => {
+        return fetch(`http://localhost:8088/items/${id}?_embed=friends`)
+            .then(res => res.json())
+          
+    }
 
 
  /*
@@ -25,7 +30,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems
+        items, getItems, getItemById
     }}>
 
         {props.children}
