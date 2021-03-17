@@ -7,15 +7,22 @@ import {SortFriends} from "../components/sort/SortButton.js"
 export const ApplicationViews = () => {
     return (
         <>
-            {/* Render the location list when http://localhost:3000/ */}
+            {/* Render the item list when http://localhost:3000/ */}
             <ItemProvider>
                 <Route exact path="/">
                     <ItemList />
                 </Route>
             </ItemProvider>
+            
             <Route exact path="/" render={props => <SortFriends {...props} />} />
 
+            <Route exact path="/items">
+                   
+            </Route>
 
+            <Route exact path="/friends">
+                   
+            </Route>
         </>
     )
 }
