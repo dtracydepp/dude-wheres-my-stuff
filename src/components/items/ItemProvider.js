@@ -19,10 +19,7 @@ export const ItemProvider = (props) => {
 
 
  /*
-        You return a context provider which has the
-        `items` state, `getItems` function,
-        and the `addItems` function (when added later) as keys. This
-        allows any child elements to access them.
+ Return a context provider other components can access the array of objects being stored in the items variable, and can invoke the, getItems and addItems functions(added later).
     */
   
     
