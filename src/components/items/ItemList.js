@@ -9,10 +9,10 @@ export const ItemList = () => {
   //  // The useHistory hook tells React which route to visit. Tells React to render the location form component.
   const history = useHistory()
 
-    // This state changes when `getItemss()` is invoked below
+    // This state changes when `getItems()` is invoked below
     const { items, getItems } = useContext(ItemsContext)
   
-    //useEffect - reach out to the world for something - API call for the locations; wil only run one time at intial render because array is empty
+    //useEffect - reach out to the world for something - API call for the items; wil only run one time at intial render because array is empty
     useEffect(() => {
     //   console.log("ItemList: useEffect - getItems")
       getItems()
