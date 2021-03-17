@@ -5,8 +5,35 @@
       "name": "Tracy Depp",
       "id": 1
     }
+  
   ],
   "friends": [],
-  "items": [],
+
+  "items": [
+    { "itemName": "Apple Phone Charger",
+      "description": "Apple iPhone lightening charger with extra long cord",
+      "note": "",
+      "friendId": "",
+      "userId": ""
+
+    },
+
+    { "itemName": "Fiskars Paper Trimmer",
+      "description": "6-1/4in workspace, a self-leveling 15in ruler for precise measuring of larger paper, a lightweight design with rail lock to make it portable, and easy cutting action with a high profile handle",
+      "note": "TEST",
+      "friendId": "",
+      "userId": ""
+
+    },
+
+    { "itemName": "Flour Storage Container",
+      "description": "90 fl oz, purple air-tight storage container with stainless steel lid",
+      "note": "TEST",
+      "friendId": "",
+      "userId": ""
+
+    }
+
+  ],
   "categories": []
 }
