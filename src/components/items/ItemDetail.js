@@ -26,6 +26,13 @@ export const ItemDetail = () => {
       <div className="item__description">{items.description}</div>
       {/* NEED friendName to render not ID, researching friends is  an array so use .map to get name */}
       <div className="friend__name">Who Has My Stuff: {items.friendId}</div> 
+      <button onClick={() => {history.push("/items/create")}}>
+            Add Note
+          </button>
+          <button onClick={() => {history.push("/")}}>
+            Delete Item
+          </button>
+
     </section>
   )
 }

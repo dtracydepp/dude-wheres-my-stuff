@@ -13,13 +13,17 @@ export const ApplicationViews = () => {
             {/* Render the item list when http://localhost:3000/ */}
             <ItemProvider>
                 <FriendProvider>
-                <Route exact path="/">
-                    <ItemList />
-                </Route>
+                    <Route exact path="/">
+                        <ItemList />
+                    </Route>
 
-                <Route exact path="/items/detail/:itemId(\d+)">
-                    <ItemDetail />
-                </Route>
+                    <Route exact path="/items/detail/:itemId(\d+)">
+                        <ItemDetail />
+                    </Route>
+
+                    <Route path="/items/create">
+
+                    </Route>
                 </FriendProvider>
             </ItemProvider>
 
