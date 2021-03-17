@@ -24,7 +24,7 @@ export const ItemDetail = () => {
       <h3 className="item__name">{items.itemName}</h3>
       {console.log(items.itemName)}
       <div className="item__description">{items.description}</div>
-      {/* friends is  an arrays so use .map to get name */}
+      {/* NEED friendName to render not ID, researching friends is  an array so use .map to get name */}
       <div className="friend__name">Who Has My Stuff: {items.friendId}</div> 
     </section>
   )
