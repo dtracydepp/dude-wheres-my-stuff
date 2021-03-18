@@ -4,7 +4,7 @@ import { ItemProvider } from "./items/ItemProvider.js"
 import { ItemList } from "./items/ItemList.js"
 import { SortFriends } from "../components/sort/SortButton.js"
 import { FriendProvider } from "./friends/FriendProvider.js"
-import { FriendList } from "./friends/FriendList.js"
+import { FriendSelect } from "./friends/FriendSelect.js"
 import { ItemDetail } from "./items/ItemDetail.js"
 
 export const ApplicationViews = () => {
@@ -35,7 +35,7 @@ export const ApplicationViews = () => {
 
             <FriendProvider>
                 <Route exact path="/allfriends">
-                    <FriendList />
+                    <FriendSelect />
                 </Route>
 
 
