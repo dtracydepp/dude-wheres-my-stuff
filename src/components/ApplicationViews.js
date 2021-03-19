@@ -26,8 +26,10 @@ export const ApplicationViews = () => {
                     </Route>
                 </FriendProvider>
             </ItemProvider>
+            <FriendProvider>
 
             <Route exact path="/" render={props => <SortFriends {...props} />} />
+            </FriendProvider>
 
             <Route exact path="/items">
 
@@ -35,7 +37,7 @@ export const ApplicationViews = () => {
 
             <FriendProvider>
                 <ItemProvider>
-                <Route exact path="/allfriends/">
+                <Route exact path="/allfriends">
                     <FriendSelect />
                 </Route>
 
