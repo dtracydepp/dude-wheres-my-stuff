@@ -12,17 +12,16 @@ export const ItemDetail = () => {
 	const history = useHistory();
 
   useEffect(() => {
-    console.log("useEffect", itemId)
+    // console.log("useEffect", itemId)
     getItemById (itemId)
     .then((response) => {
       setItems(response)
     })
     }, [])
-
   return (
     <section className="item">
       <h3 className="item__name">{items.itemName}</h3>
-      {console.log(items.itemName)}
+      {/* {console.log(items.friendId)} */}
       <div className="item__description">{items.description}</div>
       {/* NEED friendName to render not ID, need a getFriendbyID? .find or .map with friendid=id?, researching friends is  an array so use .map to get name */}
       <div className="friend__name">Who Has My Stuff: {items.friendId}</div> 

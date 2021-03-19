@@ -34,11 +34,14 @@ export const ApplicationViews = () => {
             </Route>
 
             <FriendProvider>
-                <Route exact path="/allfriends">
+                <ItemProvider>
+                <Route exact path="/allfriends/">
                     <FriendSelect />
                 </Route>
 
+                
 
+                </ItemProvider>
             </FriendProvider>
         </>
     )

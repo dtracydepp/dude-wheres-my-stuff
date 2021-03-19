@@ -13,6 +13,7 @@ export const FriendSelect = () => {
 	const history = useHistory();
 
   useEffect(() => {
+
     console.log("useEffect", friendId)
     getFriendById (friendId)
     .then((response) => {
