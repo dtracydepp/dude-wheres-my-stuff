@@ -41,7 +41,7 @@ export const FriendSelect = () => {
           {friends.map((friend) =>
             <option key={friend.id} value={friend.id}>{friend.friendName}</option>)}
         </select>
-             return <FriendCard key={friend.id} item ={items}/>
+             {/* return <FriendCard key={friend.id} item ={items}/> */}
 
       </div>
     </>
