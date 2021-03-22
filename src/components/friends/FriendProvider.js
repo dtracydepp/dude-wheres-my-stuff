@@ -16,7 +16,7 @@ export const FriendProvider = (props) => {
         .then(setFriends)
     }
 
-    const getFriendById = (id) => {
+    const getFriendItemsById = (id) => {
         return fetch(`http://localhost:8088/friends/${id}?_embed=items`)
             .then(res => res.json())
           
@@ -30,7 +30,7 @@ export const FriendProvider = (props) => {
     
 return (
     <FriendsContext.Provider value={{
-        friends, getFriends, getFriendById
+        friends, getFriends, getFriendItemsById
     }}>
 
         {props.children}
