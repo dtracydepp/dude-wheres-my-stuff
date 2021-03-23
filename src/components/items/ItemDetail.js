@@ -4,12 +4,20 @@ import "./Item.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const ItemDetail = () => {
-  const { getItemById } = useContext(ItemsContext)
+  const { getItemById, deleteItem } = useContext(ItemsContext)
 
 	const [items, setItems] = useState({})
 
 	const {itemId} = useParams();
 	const history = useHistory();
+
+  const handleDelete = () => {
+    deleteItem(items.id)
+      .then(() => {
+        history.push("/")
+      })
+  }
+
 
   useEffect(() => {
     // console.log("useEffect", itemId)
@@ -28,7 +36,7 @@ export const ItemDetail = () => {
       <button onClick={() => {history.push("/items/create")}}>
             Add Note
           </button>
-          <button onClick={() => {history.push("/")}}>
+          <button onClick={handleDelete}>
             Delete Item
           </button>
 
