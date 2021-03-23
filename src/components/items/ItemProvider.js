@@ -34,6 +34,13 @@ export const ItemProvider = (props) => {
         
     }
 
+    const deleteItem = itemId => {
+        return fetch(`http://localhost:8088/items/${itemId}`, {
+            method: "DELETE"
+        })
+            .then(getItems)
+    }
+
  /*
  Return a context provider other components can access the array of objects being stored in the items variable, and can invoke the, getItems and addItems functions(added later).
     */
@@ -41,7 +48,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById, addItem
+        items, getItems, getItemById, addItem,deleteItem
     }}>
 
         {props.children}
