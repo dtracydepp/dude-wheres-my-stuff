@@ -31,6 +31,7 @@ export const ItemProvider = (props) => {
             body: JSON.stringify(item)
         })
         .then(response => response.json())
+        
     }
 
  /*

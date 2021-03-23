@@ -23,8 +23,8 @@ Define the intial state of the form inputs with useState()
   const history = useHistory();
 
   /*
-  Reach out to the world and get tasks state
-  and task state on initialization
+  Reach out to the world and get items state
+  and friends state on initialization
   */
   useEffect(() => {
     getItems().then(getFriends)
@@ -72,7 +72,7 @@ Define the intial state of the form inputs with useState()
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Item:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item name" value={item.itemNme}/>
+                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item name" value={item.itemName}/>
                 </div>
             </fieldset>
             <fieldset>
