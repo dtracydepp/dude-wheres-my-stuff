@@ -27,6 +27,10 @@ export const ApplicationViews = () => {
                         <ItemDetail />
                     </Route>
 
+                    <Route path="/items/edit/:itemId(\d+)">
+                        <ItemDetail />
+                    </Route>
+
                     <Route path="/items/create">
 
 

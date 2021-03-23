@@ -9,6 +9,11 @@
       "email": "alina@me.com",
       "name": "Alina Paige",
       "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "name": "Test Account",
+      "id": 3
     }
   ],
   "friends": [

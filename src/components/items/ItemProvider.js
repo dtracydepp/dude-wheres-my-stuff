@@ -29,6 +29,16 @@ export const ItemProvider = (props) => {
         .then(setFriendItems)
     }
 
+    const updateItem = item => {
+        return fetch(`http://localhost:8088/items/${item.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(item)
+        })
+          .then(getItems)
+      }
  /*
  Return a context provider other components can access the array of objects being stored in the items variable, and can invoke the, getItems and addItems functions(added later).
     */
@@ -36,7 +46,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById,getItemsByUser, friendItems
+        items, getItems, getItemById,getItemsByUser, friendItems, updateItem
     }}>
 
         {props.children}
