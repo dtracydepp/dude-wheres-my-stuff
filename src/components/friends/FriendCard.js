@@ -13,7 +13,7 @@ export const FriendCard = ({friend}) => {
       }, [])
     
       
-      const friendItem = items.find(it =>it.friendId === friend.id)
+      const friendItem = items.map(it =>it.friendId === friend.id)
     //   debugger
    return (
    <section className="friendItems">

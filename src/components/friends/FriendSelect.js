@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
 import { FriendsContext } from "./FriendProvider.js"
 import { FriendCard } from "./FriendCard"
-import { ItemsContext } from "../items/ItemProvider.js"
 import "./Friend.css"
-import {useHistory } from "react-router-dom"
+
 
 export const FriendSelect = () => {
-  const { friends, getFriends} = useContext(FriendsContext)
-  const history = useHistory();
+  const { friends, getFriends } = useContext(FriendsContext)
   const [friend, setFriend] = useState({})
 
   useEffect(() => {
@@ -24,7 +22,7 @@ export const FriendSelect = () => {
     }
     selectedFriend[event.target.id] = selectedVal
     setFriend(selectedFriend)
-    console.log(selectedFriend)
+    // console.log(selectedFriend)
   }
 
 

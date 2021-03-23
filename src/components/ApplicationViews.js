@@ -7,6 +7,7 @@ import { FriendProvider } from "./friends/FriendProvider.js"
 import { FriendSelect } from "./friends/FriendSelect.js"
 import { ItemDetail } from "./items/ItemDetail.js"
 
+
 export const ApplicationViews = () => {
     return (
         <>
@@ -17,34 +18,38 @@ export const ApplicationViews = () => {
                         <ItemList />
                     </Route>
 
+                    <Route exact path="/items">
+
+                    </Route>
+
+
                     <Route exact path="/items/detail/:itemId(\d+)">
                         <ItemDetail />
                     </Route>
 
                     <Route path="/items/create">
 
+
                     </Route>
                 </FriendProvider>
             </ItemProvider>
-            <FriendProvider>
 
-            <Route exact path="/" render={props => <SortFriends {...props} />} />
-            </FriendProvider>
-
-            <Route exact path="/items">
-
-            </Route>
 
             <FriendProvider>
                 <ItemProvider>
-                <Route exact path="/allfriends">
-                    <FriendSelect />
-                </Route>
 
-                
+                    <Route exact path="/allfriends">
+                        <FriendSelect />
+
+                    </Route>
+
+                    <Route exact path="/" render={props => <SortFriends {...props} />}>
+                    </Route>
 
                 </ItemProvider>
             </FriendProvider>
+
+
         </>
     )
 }
