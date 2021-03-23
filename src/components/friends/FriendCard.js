@@ -6,19 +6,11 @@ import {useContext, useEffect} from "react"
 
 
 export const FriendCard = ({friend}) => {
-    const { items, getItems } = useContext(ItemsContext)
-    useEffect(() => {
-        getItems()
     
-      }, [])
-    
-      
-      const friendItem = items.map(it =>it.friendId === friend.id)
-    //   debugger
    return (
-   <section className="friendItems">
+   <div className="friendItems">
         <h3 className="friend__name">{friend?.friendName}</h3>
         <p className="friend__item">{friendItem?.itemName}</p>
-    </section>
+    </div>
    )
 }

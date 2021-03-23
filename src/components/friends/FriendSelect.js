@@ -1,28 +1,29 @@
 import React, { useContext, useEffect, useState } from "react"
 import { FriendsContext } from "./FriendProvider.js"
-import { FriendCard } from "./FriendCard"
+import { ItemCard } from "../items/ItemCard.js"
 import "./Friend.css"
+import { ItemsContext } from "../items/ItemProvider.js"
 
 
 export const FriendSelect = () => {
-  const { friends, getFriends } = useContext(FriendsContext)
-  const [friend, setFriend] = useState({})
+  const { friends, getFriends, } = useContext(FriendsContext)
+  const [selectedFriend, setSelectedFriend] = useState({})
+  const {getItemsByUser, friendItems} = useContext(ItemsContext)
 
   useEffect(() => {
     getFriends()
 
   }, [])
 
+  useEffect(() => {
+    getItemsByUser(selectedFriend)
+
+  }, [selectedFriend])
+
 
   const handleInputChange = (event) => {
-    const selectedFriend = { ...friend }
-    let selectedVal = event.target.value
-    if (event.target.id.includes("id")) {
-      selectedVal = parseInt(selectedVal)
-    }
-    selectedFriend[event.target.id] = selectedVal
-    setFriend(selectedFriend)
-    // console.log(selectedFriend)
+    setSelectedFriend(event.target.value)
+    
   }
 
 
@@ -36,10 +37,14 @@ export const FriendSelect = () => {
           {friends.map((fr) =>
           <option key={fr.id} value={fr.id}>{fr.friendName}</option>)
         } 
-        <FriendCard key={friend.id} friend={friend}/>
-       
-         
         </select>
+        { 
+            friendItems.map((item) => {
+              //   key and item become properties on the object passed in as in argument
+              return <ItemCard key={item.id} item={item} />
+            })
+        } 
+         
 
       </div>
     </>
