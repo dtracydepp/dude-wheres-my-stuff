@@ -7,14 +7,11 @@ import {useHistory } from "react-router-dom"
 
 export const FriendSelect = () => {
   const { friends, getFriends} = useContext(FriendsContext)
-  const { items, getItems } = useContext(ItemsContext)
   const history = useHistory();
-
-
   const [friend, setFriend] = useState({})
+
   useEffect(() => {
     getFriends()
-      .then(getItems())
 
   }, [])
 
@@ -36,12 +33,15 @@ export const FriendSelect = () => {
     <>
       <div className="friends">
         <h3>My Friends</h3>
-        <select value={friend.id} id="friendId" className="form-control" onChange={handleInputChange} >
+        <select value="0" id="friendId" className="form-control" onChange={handleInputChange} >
           <option value="0">Select a friend</option>
-          {friends.map((friend) =>
-            <option key={friend.id} value={friend.id}>{friend.friendName}</option>)}
+          {friends.map((fr) =>
+          <option key={fr.id} value={fr.id}>{fr.friendName}</option>)
+        } 
+        <FriendCard key={friend.id} friend={friend}/>
+       
+         
         </select>
-             {/* return <FriendCard key={friend.id} item ={items}/> */}
 
       </div>
     </>
