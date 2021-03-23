@@ -11,6 +11,7 @@ export const ItemList = () => {
 
     // This state changes when `getItems()` is invoked below
     const { items, getItems } = useContext(ItemsContext)
+    
   
     //useEffect - reach out to the world for something - API call for the items; will only run one time at intial render because array is empty
     useEffect(() => {

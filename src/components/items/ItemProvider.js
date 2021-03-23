@@ -33,18 +33,35 @@ export const ItemProvider = (props) => {
         .then(response => response.json())
         
     }
-
-    const addNote = note => {
-        return fetch(`http://localhost:8088/items/${note.id}`, {
-            method: "PUT",
+    const addNote = itemId => {
+        // addNote function changes adds a note to items object
+        const completeNote = {
+           note: ""
+        }
+    
+        //PATCH method edits/updates a single key:value pair in the database
+        return fetch(`http://localhost:8088/items/${itemId}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(note)
+            body: JSON.stringify(completeNote)
         })
-        .then(response => response.json())
+            .then(getItems)
+           
+    
+        }
+    // const addNote = note => {
+    //     return fetch(`http://localhost:8088/items/${note.id}`, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(note)
+    //     })
+    //     .then(response => response.json())
         
-    }
+    // }
 
     const deleteItem = itemId => {
         return fetch(`http://localhost:8088/items/${itemId}`, {

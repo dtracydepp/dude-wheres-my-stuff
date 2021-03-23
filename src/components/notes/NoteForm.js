@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export const NoteForm = () => {
   const {getItems, addNote } = useContext(ItemsContext)
-  
+  const userId = parseInt(sessionStorage.getItem("app_user_id"))
  
   /*
 With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -15,8 +15,10 @@ Define the intial state of the form inputs with useState()
   const [note, setNote] = useState({
     itemName: "",
     description: "",
+    note: "",
     id: 0,
-    friendId: 0
+    friendId: 0,
+    userId: userId
   });
 
   const history = useHistory();

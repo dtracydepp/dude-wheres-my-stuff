@@ -4,7 +4,7 @@ import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const FriendForm = () => {
   const {friends, getFriends, addFriend } = useContext(FriendsContext)
-  
+  const userId = parseInt(sessionStorage.getItem("app_user_id"))
  
   /*
 With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -14,7 +14,7 @@ Define the intial state of the form inputs with useState()
   const [friend, setFriend] = useState({
     id: 0,
     friendName: "",
-
+    userId: userId
    
   });
 

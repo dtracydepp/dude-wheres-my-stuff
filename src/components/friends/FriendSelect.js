@@ -27,7 +27,7 @@ export const FriendSelect = () => {
     }
     selectedFriend[event.target.id] = selectedVal
     setFriend(selectedFriend)
-    console.log(selectedFriend)
+    // console.log(selectedFriend)
   }
 
 
