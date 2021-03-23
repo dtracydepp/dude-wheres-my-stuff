@@ -16,8 +16,23 @@ export const FriendProvider = (props) => {
         .then(setFriends)
     }
 
+    const getFriendItemsById = (id) => {
+        return fetch(`http://localhost:8088/friends/${id}?_embed=items`)
+            .then(res => res.json())
+          
+    }
 
-
+    const addFriend = friend => {
+        return fetch("http://localhost:8088/friends", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(friend)
+        })
+        .then(response => response.json())
+        
+    }
  /*
  Return a context provider other components can access the array of objects being stored in the friends variable, and can invoke the, getFriends and addFriends functions(added later).
     */
@@ -25,7 +40,7 @@ export const FriendProvider = (props) => {
     
 return (
     <FriendsContext.Provider value={{
-        friends, getFriends
+        friends, getFriends, getFriendItemsById, addFriend
     }}>
 
         {props.children}
