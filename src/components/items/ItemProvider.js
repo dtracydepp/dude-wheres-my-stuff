@@ -34,6 +34,18 @@ export const ItemProvider = (props) => {
         
     }
 
+    const addNote = note => {
+        return fetch(`http://localhost:8088/items/${note.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(note)
+        })
+        .then(response => response.json())
+        
+    }
+
     const deleteItem = itemId => {
         return fetch(`http://localhost:8088/items/${itemId}`, {
             method: "DELETE"
@@ -48,7 +60,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById, addItem,deleteItem
+        items, getItems, getItemById, addItem,deleteItem, addNote
     }}>
 
         {props.children}

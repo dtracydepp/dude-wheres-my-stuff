@@ -8,6 +8,7 @@ import { FriendSelect } from "./friends/FriendSelect.js"
 import { ItemDetail } from "./items/ItemDetail.js"
 import {ItemForm} from "./items/ItemForm.js"
 import {FriendForm} from "./friends/FriendForm.js"
+import {NoteForm} from "./notes/NoteForm.js"
  
 export const ApplicationViews = () => {
     return (
@@ -28,7 +29,7 @@ export const ApplicationViews = () => {
                     </Route>
 
                     <Route path="/items/create">
-
+                    <NoteForm />
                     </Route>
                 </FriendProvider>
             </ItemProvider>

@@ -62,7 +62,7 @@ Define the intial state of the form inputs with useState()
           //invoke addItem passing item as an argument.
           //once complete, change the url and display the item list
           addItem(item)
-          .then(() => history.push("/items"))
+          .then(() => history.push("/"))
         }
       }
   
@@ -71,8 +71,8 @@ Define the intial state of the form inputs with useState()
             <h2 className="itemForm__title">New Item</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Item:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item name" value={item.itemName}/>
+                    <label htmlFor="item">Item:</label>
+                    <input type="text" id="itemName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item name" value={item.itemName}/>
                 </div>
             </fieldset>
             <fieldset>

@@ -16,10 +16,10 @@
       "friendName": "Amanda"
     },
     {
-      "friendName": "",
-      "name": "TEST",
-      "id": 3
+      "id": 3,
+      "friendName": "Dominick"
     }
+    
   ],
   "items": [
     {
@@ -39,12 +39,11 @@
       "userId": 1
     },
     {
-      "itemName": "",
-      "description": "TEST",
-      "note": "TEST",
+      "itemName": "TEST2",
+      "description": "TEST2",
+      "note": "",
       "id": 4,
-      "friendId": "1",
-      "name": "TEST"
+      "friendId": "1"
     }
   ],
   "categories": []
