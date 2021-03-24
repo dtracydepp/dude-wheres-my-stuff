@@ -9,6 +9,7 @@ export const ItemProvider = (props) => {
 
 // Define the state variable "items" which will hold the data and the function "setItems" to be used to modify that state
     const [items, setItems] = useState([])
+    const [friendItems, setFriendItems] = useState([])
 
     const getItems = () => {
         return fetch("http://localhost:8088/items")
@@ -20,6 +21,12 @@ export const ItemProvider = (props) => {
         return fetch(`http://localhost:8088/items/${id}?_embed=friends`)
             .then(res => res.json())
           
+    }
+
+    const getItemsByUser = (userId) => {
+        return fetch(`http://localhost:8088/items?userId=${userId}`)
+        .then(res => res.json())
+        .then(setFriendItems)
     }
 
     const addItem = item => {
@@ -70,6 +77,16 @@ export const ItemProvider = (props) => {
             .then(getItems)
     }
 
+    const updateItem = item => {
+        return fetch(`http://localhost:8088/items/${item.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(item)
+        })
+          .then(getItems)
+      }
  /*
  Return a context provider other components can access the array of objects being stored in the items variable, and can invoke the, getItems and addItems functions(added later).
     */
@@ -77,7 +94,8 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById, addItem,deleteItem, addNote
+        items, getItems, getItemById,getItemsByUser, addItem, deleteItem, friendItems, updateItem
+       
     }}>
 
         {props.children}

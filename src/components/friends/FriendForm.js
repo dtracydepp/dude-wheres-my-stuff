@@ -60,7 +60,7 @@ Define the intial state of the form inputs with useState()
   
       return (
         <form className="friendForm">
-            <h2 className="itemForm__title">New Friend</h2>
+            <h2 className="friendForm__title">New Friend</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="friend">Friend Name:</label>
