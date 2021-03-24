@@ -18,7 +18,7 @@ Define the intial state of the form inputs with useState()
     note: "",
     id: 0,
     friendId: 0,
-    userId: userId
+  
   });
   //wait for data before button is active. Look at the button to see how it's setting itself to disabled or not based on this state
   const [isLoading, setIsLoading] = useState(true);

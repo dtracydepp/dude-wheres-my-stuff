@@ -41,14 +41,7 @@
       "friendId": 2,
       "userId": 1
     },
-    {
-      "id": 2,
-      "itemName": "Fiskars Paper Trimmer",
-      "description": "6-1/4in workspace, a self-leveling 15in ruler for precise measuring of larger paper, a lightweight design with rail lock to make it portable, and easy cutting action with a high profile handle",
-      "note": "TEST",
-      "friendId": 2,
-      "userId": 1
-    },
+   
     {
       "id": 3,
       "itemName": "Flour Storage Container",

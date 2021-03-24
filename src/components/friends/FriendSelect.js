@@ -22,19 +22,8 @@ export const FriendSelect = () => {
 
 
   const handleInputChange = (event) => {
-<<<<<<< HEAD
-    const selectedFriend = { ...friend }
-    let selectedVal = event.target.value
-    if (event.target.id.includes("id")) {
-      selectedVal = parseInt(selectedVal)
-    }
-    selectedFriend[event.target.id] = selectedVal
-    setFriend(selectedFriend)
-    // console.log(selectedFriend)
-=======
     setSelectedFriend(event.target.value)
     
->>>>>>> main
   }
 
 
