@@ -7,7 +7,7 @@ import { FriendProvider } from "./friends/FriendProvider.js"
 import { FriendSelect } from "./friends/FriendSelect.js"
 import { ItemDetail } from "./items/ItemDetail.js"
 import { ItemForm } from "./items/ItemForm.js"
-import {FriendForm} from "./friends/FriendForm.js"
+import { FriendForm } from "./friends/FriendForm.js"
 
 export const ApplicationViews = () => {
     return (
@@ -28,6 +28,10 @@ export const ApplicationViews = () => {
                         <ItemDetail />
                     </Route>
 
+                    <Route path="/items/edit/:itemId(\d+)">
+                        <ItemForm />
+                    </Route>
+
                     <Route path="/items/create">
 
 
@@ -39,7 +43,7 @@ export const ApplicationViews = () => {
             <FriendProvider>
                 <ItemProvider>
 
-                <Route exact path="/friends">
+                    <Route exact path="/friends">
                         <FriendForm />
                     </Route>
 

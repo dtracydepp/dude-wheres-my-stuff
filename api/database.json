@@ -22,12 +22,11 @@
   ],
   "items": [
     {
-      "id": 1,
-      "itemName": "Apple Phone Charger",
+      "itemName": "Apple Phone Charger ",
       "description": "Apple iPhone lightening charger with extra long cord",
       "note": "",
-      "friendId": 1,
-      "userId": 1
+      "id": 1,
+      "friendId": 1
     },
     {
       "id": 2,
@@ -44,6 +43,13 @@
       "note": "TEST",
       "friendId": 2,
       "userId": 1
+    },
+    {
+      "itemName": "TEST2",
+      "description": "TEST",
+      "note": "TEST2",
+      "id": 4,
+      "friendId": "3"
     }
   ],
   "categories": []
