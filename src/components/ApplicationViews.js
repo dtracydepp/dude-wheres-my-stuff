@@ -6,7 +6,8 @@ import { SortFriends } from "../components/sort/SortButton.js"
 import { FriendProvider } from "./friends/FriendProvider.js"
 import { FriendSelect } from "./friends/FriendSelect.js"
 import { ItemDetail } from "./items/ItemDetail.js"
-import { FriendCard } from "./friends/FriendCard.js"
+import { ItemForm } from "./items/ItemForm.js"
+import {FriendForm} from "./friends/FriendForm.js"
 
 export const ApplicationViews = () => {
     return (
@@ -19,7 +20,7 @@ export const ApplicationViews = () => {
                     </Route>
 
                     <Route exact path="/items">
-
+                        <ItemForm />
                     </Route>
 
 
@@ -29,7 +30,7 @@ export const ApplicationViews = () => {
 
                     <Route path="/items/create">
 
-                   
+
                     </Route>
                 </FriendProvider>
             </ItemProvider>
@@ -38,13 +39,16 @@ export const ApplicationViews = () => {
             <FriendProvider>
                 <ItemProvider>
 
+                <Route exact path="/friends">
+                        <FriendForm />
+                    </Route>
+
                     <Route exact path="/allfriends">
                         <FriendSelect />
-
                     </Route>
 
                     <Route exact path="/" render={props => <SortFriends {...props} />}>
-            </Route>
+                    </Route>
 
                 </ItemProvider>
             </FriendProvider>

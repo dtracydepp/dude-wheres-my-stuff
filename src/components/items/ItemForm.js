@@ -62,7 +62,7 @@ Define the intial state of the form inputs with useState()
           //invoke addItem passing item as an argument.
           //once complete, change the url and display the item list
           addItem(item)
-          .then(() => history.push("/items"))
+          .then(() => history.push("/"))
         }
       }
   

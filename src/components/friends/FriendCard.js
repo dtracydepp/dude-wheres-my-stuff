@@ -1,8 +1,5 @@
 import React from "react"
 import "./Friend.css"
-import {ItemsContext} from "../items/ItemProvider.js"
-import {useContext, useEffect} from "react"
-
 
 
 export const FriendCard = ({friend}) => {
