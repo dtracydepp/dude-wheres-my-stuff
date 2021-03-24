@@ -11,8 +11,8 @@ export const ItemProvider = (props) => {
     const [items, setItems] = useState([])
     const [friendItems, setFriendItems] = useState([])
 
-    const getItems = () => {
-        return fetch("http://localhost:8088/items")
+    const getItems = (userId) => {
+        return fetch(`http://localhost:8088/items?userId=${userId}`)
         .then(res => res.json())
         .then(setItems)
     }
@@ -23,9 +23,9 @@ export const ItemProvider = (props) => {
             
           
     }
-
-    const getItemsByUserId = (userId) => {
-        return fetch(`http://localhost:8088/items?userId=${userId}`)
+// change to getItemsByFriendId
+    const getItemsByUserId = (friendId) => {
+        return fetch(`http://localhost:8088/items?friendId=${friendId}`)
         .then(res => res.json())
         .then(setFriendItems)
     }

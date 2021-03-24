@@ -22,7 +22,7 @@ Define the intial state of the form inputs with useState()
   Reach out to the world and get items state on initialization.
   */
   useEffect(() => {
-    getItems()
+    getItems(userId)
   }, [])
 
  //when a field changes, update state. The return will re-render and display based on the values in state

@@ -9,10 +9,10 @@ export const FriendSelect = () => {
   const { friends, getFriends, } = useContext(FriendsContext)
   const [selectedFriend, setSelectedFriend] = useState({})
   const {getItemsByUserId, friendItems} = useContext(ItemsContext)
-
+  const userId =  parseInt(sessionStorage.getItem("app_user_id"))
   // intial load, runs only one time.
   useEffect(() => {
-    getFriends()
+    getFriends(userId)
 
   }, [])
 

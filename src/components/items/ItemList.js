@@ -5,6 +5,7 @@ import "./Item.css"
 import { useHistory } from "react-router-dom"
 
 export const ItemList = () => {
+  const userId =  parseInt(sessionStorage.getItem("app_user_id"))
 
   //  // The useHistory hook tells React which route to visit. Tells React to render the item form component(not added yet).
   const history = useHistory()
@@ -16,7 +17,7 @@ export const ItemList = () => {
     //useEffect - reach out to the world for something - API call for the items; will only run one time at intial render because array is empty
     useEffect(() => {
     //   console.log("ItemList: useEffect - getItems")
-      getItems()
+      getItems(userId)
 
     }, [])
   

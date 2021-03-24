@@ -36,7 +36,7 @@ Define the intial state of the form inputs with useState()
 
   // Get items and friends. If itemId is in the URL, getItemById
   useEffect(() => {
-    getItems().then(getFriends).then(() => {
+    getItems(userId).then(getFriends(userId)).then(() => {
       if (itemId) {
         getItemById(itemId)
         .then(item => {
