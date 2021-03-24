@@ -33,7 +33,7 @@ export const ApplicationViews = () => {
                         <ItemForm />
                     </Route>
 
-                    <Route path="/items/create">
+                    <Route path="/items/create/:itemId(\d+)">
                         <NoteForm />
                     </Route>
                 </FriendProvider>

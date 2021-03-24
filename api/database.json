@@ -1,52 +1,62 @@
 {
   "users": [
     {
+      "id": 1,
       "email": "tracy@me.com",
-      "name": "Tracy Depp",
-      "id": 1
+      "name": "Tracy Depp"
+      
     },
+
     {
+      "id": 2,
       "email": "alina@me.com",
-      "name": "Alina Paige",
-      "id": 2
+      "name": "Alina Paige"
+      
     }
   ],
+
   "friends": [
     {
       "id": 1,
       "friendName": "Vanessa",
       "userId": 1
     },
+
     {
       "id": 2,
       "friendName": "Amanda",
       "userId": 1
     },
+
     {
-      "friendName": "Dominick",
       "id": 3,
+      "friendName": "Dominick",
       "userId": 1
     },
+
     {
       "id": 4,
       "friendName": "Ava",
       "userId": 2
     },
+
     {
       "id": 5,
       "friendName": "Anessa",
       "userId": 2
     }
   ],
+
   "items": [
     {
+      "id": 1,
       "itemName": "Apple Phone Charger ",
       "description": "Apple iPhone lightening charger with extra long cord",
       "note": "",
-      "id": 1,
       "friendId": 1,
       "userId": 1
     },
+
     {
       "id": 2,
       "itemName": "Fiskars Paper Trimmer",
@@ -55,6 +65,7 @@
       "friendId": 2,
       "userId": 1
     },
+
     {
       "id": 3,
       "itemName": "Flour Storage Container",
@@ -63,6 +74,7 @@
       "friendId": 2,
       "userId": 1
     },
+
     {
       "id": 5,
       "itemName": "CD - 400 Degreez , Juvenile",
@@ -71,6 +83,7 @@
       "friendId": "3",
       "userId": 1
     },
+
     {
       "id": 6,
       "itemName": "Jacket",
@@ -79,6 +92,7 @@
       "friendId": "4",
       "userId": 2
     },
+
     {
       "id": 7,
       "itemName": "Sippy Cup",
@@ -87,6 +101,7 @@
       "friendId": 5,
       "userId": 2
     }
+    
   ],
   "categories": []
 }
