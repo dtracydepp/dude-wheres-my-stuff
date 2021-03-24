@@ -14,15 +14,28 @@
   "friends": [
     {
       "id": 1,
-      "friendName": "Vanessa"
+      "friendName": "Vanessa",
+      "userId": 1
     },
     {
       "id": 2,
-      "friendName": "Amanda"
+      "friendName": "Amanda",
+      "userId": 1
     },
     {
       "friendName": "Dominick",
-      "id": 3
+      "id": 3,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "friendName": "Ava",
+      "userId": 2
+    },
+    {
+      "id": 5,
+      "friendName": "Anessa",
+      "userId": 2
     }
   ],
   "items": [
@@ -31,7 +44,8 @@
       "description": "Apple iPhone lightening charger with extra long cord",
       "note": "",
       "id": 1,
-      "friendId": 1
+      "friendId": 1,
+      "userId": 1
     },
     {
       "id": 2,
@@ -41,7 +55,6 @@
       "friendId": 2,
       "userId": 1
     },
-   
     {
       "id": 3,
       "itemName": "Flour Storage Container",
@@ -51,11 +64,28 @@
       "userId": 1
     },
     {
-      "itemName": "TEST2",
-      "description": "TEST",
-      "note": "TEST2",
-      "id": 4,
-      "friendId": "3"
+      "id": 5,
+      "itemName": "CD - 400 Degreez , Juvenile",
+      "description": "400 Degreez is the third studio album by American rapper Juvenile. The album was released on November 3, 1998, on Cash Money Records. It remains Juvenile's best-selling album of his solo career and currently the best-selling album ever released on Cash Money Records. The album was certified 4x Platinum by the RIAA, on December 19, 1999.",
+      "note": "",
+      "friendId": "3",
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "itemName": "Jacket",
+      "description": "White Jean Jacket, Sz 3T",
+      "note": "Left at your house after sleepover",
+      "friendId": "4",
+      "userId": 2
+    },
+    {
+      "id": 7,
+      "itemName": "Sippy Cup",
+      "description": "8 oz Neon Green cup with white top",
+      "note": "Left at your house after sleepover",
+      "friendId": 5,
+      "userId": 2
     }
   ],
   "categories": []

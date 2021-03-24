@@ -6,6 +6,7 @@ import { FriendsContext } from "../friends/FriendProvider.js";
 export const ItemForm = () => {
   const { items, getItems, addItem, updateItem, getItemById } = useContext(ItemsContext)
   const { friends, getFriends } = useContext(FriendsContext)
+  const userId =  parseInt(sessionStorage.getItem("app_user_id"))
 
   /*
 With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -13,11 +14,12 @@ Define the intial state of the form inputs with useState()
 */
 
   const [item, setItem] = useState({
+    id: 0,
     itemName: "",
     description: "",
     note: "",
-    id: 0,
     friendId: 0,
+    userId: userId
   
   });
   //wait for data before button is active. Look at the button to see how it's setting itself to disabled or not based on this state
@@ -81,12 +83,12 @@ Define the intial state of the form inputs with useState()
       if (itemId) {
         //PUT - update
         updateItem({
-
+          id: item.id,
           itemName: item.itemName,
           description: item.description,
           note: item.note,
-          id: item.id,
-          friendId: parseInt(item.friendId)
+          friendId: parseInt(item.friendId),
+          userId: parseInt(sessionStorage.getItem("app_user_id"))
         })
           .then(() => history.push(`/items/detail/${item.id}`))
       } else {
