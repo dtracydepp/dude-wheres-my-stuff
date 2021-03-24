@@ -1,31 +1,28 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory } from 'react-router-dom';
-import { FriendsContext } from "../friends/FriendProvider.js";
+import { ItemsContext } from "../items/ItemProvider.js"
+import { useHistory, useParams } from 'react-router-dom';
 
-export const FriendForm = () => {
-  const {friends, getFriends, addFriend } = useContext(FriendsContext)
+
+export const NoteForm = () => {
+  const {getItems, addNote } = useContext(ItemsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
- 
+  const {itemId} = useParams()
   /*
 With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
 Define the intial state of the form inputs with useState()
 */
 
-  const [friend, setFriend] = useState({
-    id: 0,
-    friendName: "",
-    userId: userId
-   
+  const [note, setNote] = useState({
+    note: "" 
   });
 
   const history = useHistory();
 
   /*
-  Reach out to the world and get friends state
-   on initialization
+  Reach out to the world and get items state on initialization.
   */
   useEffect(() => {
-    getFriends()
+    getItems(userId)
   }, [])
 
  //when a field changes, update state. The return will re-render and display based on the values in state
@@ -34,43 +31,41 @@ Define the intial state of the form inputs with useState()
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
-        const newFriend = { ...friend }
+        const newNote = {...note}
         let selectedVal = event.target.value
-        // forms always provide values as strings. But we want to save the ids as numbers. This will cover friend ids
+        // forms always provide values as strings. But we want to save the ids as numbers. This will cover both item and friend ids
         if (event.target.id.includes("id")) {
           selectedVal = parseInt(selectedVal)
         }
-        /* Friend is an object with properties.
+        /* Item is an object with properties.
         Set the property to the new value
         using object bracket notation. */
-        newFriend[event.target.id] = selectedVal
+        newNote[event.target.id] = selectedVal
         // update state
-        setFriend(newFriend)
+        setNote(newNote)
       }
   
-      const handleClickSaveNewFriend = (event) => {
+      const handleClickSaveNewNote = (event) => {
         event.preventDefault() //Prevents the browser from submitting the form
 
-          //invoke addFriend passing friend as an argument.
+          //invoke addNote passing note as an argument.
           //once complete, change the url and display the friend list
-          addFriend(friend)
-          .then(() => history.push("/allfriends"))
+          addNote(note,itemId)
+          .then(() => history.push("/"))
         }
       
-  
       return (
-        <form className="friendForm">
-            <h2 className="friendForm__title">New Friend</h2>
+        <form className="itemForm">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="friend">Friend Name:</label>
-                    <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="friend name" value={friend.friendName}/>
+                    <label htmlFor="itemNote">Note:</label>
+                    <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="item note" value={note.note}/>
                 </div>
             </fieldset>
-           
+            
             <button className="btn btn-primary"
-              onClick={handleClickSaveNewFriend}>
-              Save New Friend
+              onClick={handleClickSaveNewNote}>
+              Save New Note
             </button>
         </form>
       )

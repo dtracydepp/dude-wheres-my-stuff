@@ -11,20 +11,21 @@ export const ItemProvider = (props) => {
     const [items, setItems] = useState([])
     const [friendItems, setFriendItems] = useState([])
 
-    const getItems = () => {
-        return fetch("http://localhost:8088/items")
+    const getItems = (userId) => {
+        return fetch(`http://localhost:8088/items?userId=${userId}`)
         .then(res => res.json())
         .then(setItems)
     }
 
     const getItemById = (id) => {
-        return fetch(`http://localhost:8088/items/${id}?_embed=friends`)
+        return fetch(`http://localhost:8088/items/${id}?_expand=friend`)
             .then(res => res.json())
+            
           
     }
-
-    const getItemsByUser = (userId) => {
-        return fetch(`http://localhost:8088/items?userId=${userId}`)
+// change to getItemsByFriendId
+    const getItemsByUserId = (friendId) => {
+        return fetch(`http://localhost:8088/items?friendId=${friendId}`)
         .then(res => res.json())
         .then(setFriendItems)
     }
@@ -40,6 +41,22 @@ export const ItemProvider = (props) => {
         .then(response => response.json())
         
     }
+    const addNote = (note,itemId) => {
+
+        
+        //PATCH method edits/updates a single key:value pair in the database
+        return fetch(`http://localhost:8088/items/${itemId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                note: note.note
+            })
+        })
+            .then(getItems)
+    
+        }
 
     const deleteItem = itemId => {
         return fetch(`http://localhost:8088/items/${itemId}`, {
@@ -65,7 +82,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById,getItemsByUser, addItem, deleteItem, friendItems, updateItem
+        items, getItems, getItemById,getItemsByUserId, addItem, deleteItem, friendItems, updateItem, addNote
        
     }}>
 

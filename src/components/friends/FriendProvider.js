@@ -10,8 +10,8 @@ export const FriendProvider = (props) => {
 // Define the state variable "friends" which will hold the data and the function "setFriends" to be used to modify that state
     const [friends, setFriends] = useState([])
 
-    const getFriends = () => {
-        return fetch("http://localhost:8088/friends")
+    const getFriends = (userId) => {
+        return fetch(`http://localhost:8088/friends/?userId=${userId}`)
         .then(res => res.json())
         .then(setFriends)
     }

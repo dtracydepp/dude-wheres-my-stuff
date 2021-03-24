@@ -8,19 +8,22 @@ import { ItemsContext } from "../items/ItemProvider.js"
 export const FriendSelect = () => {
   const { friends, getFriends, } = useContext(FriendsContext)
   const [selectedFriend, setSelectedFriend] = useState({})
-  const {getItemsByUser, friendItems} = useContext(ItemsContext)
-
+  const {getItemsByUserId, friendItems} = useContext(ItemsContext)
+  const userId =  parseInt(sessionStorage.getItem("app_user_id"))
+  // intial load, runs only one time.
   useEffect(() => {
-    getFriends()
+    getFriends(userId)
 
   }, [])
 
+  // 
   useEffect(() => {
-    getItemsByUser(selectedFriend)
-
+    getItemsByUserId(selectedFriend)
+    console.log("FriendID",selectedFriend)
+    
   }, [selectedFriend])
 
-
+// when a friend is selected, I'm getting the value (friendId) of the selected friend
   const handleInputChange = (event) => {
     setSelectedFriend(event.target.value)
     
@@ -40,6 +43,7 @@ export const FriendSelect = () => {
         </select>
         { 
             friendItems.map((item) => {
+              console.log(item)
               //   key and item become properties on the object passed in as in argument
               return <ItemCard key={item.id} item={item} />
             })
