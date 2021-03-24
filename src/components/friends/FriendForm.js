@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const FriendForm = () => {
-  const {friends, getFriends, addFriend } = useContext(FriendsContext)
+  const {getFriends, addFriend } = useContext(FriendsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
  
   /*
@@ -64,7 +64,7 @@ Define the intial state of the form inputs with useState()
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="friend">Friend Name:</label>
-                    <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="friend name" value={friend.friendName}/>
+                    <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Friend name" value={friend.friendName}/>
                 </div>
             </fieldset>
            

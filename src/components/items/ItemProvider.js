@@ -23,8 +23,8 @@ export const ItemProvider = (props) => {
             
           
     }
-// change to getItemsByFriendId
-    const getItemsByUserId = (friendId) => {
+
+    const getItemsByFriendId = (friendId) => {
         return fetch(`http://localhost:8088/items?friendId=${friendId}`)
         .then(res => res.json())
         .then(setFriendItems)
@@ -82,7 +82,7 @@ export const ItemProvider = (props) => {
     
 return (
     <ItemsContext.Provider value={{
-        items, getItems, getItemById,getItemsByUserId, addItem, deleteItem, friendItems, updateItem, addNote
+        items, getItems, getItemById,getItemsByFriendId, addItem, deleteItem, friendItems, updateItem, addNote
        
     }}>
 

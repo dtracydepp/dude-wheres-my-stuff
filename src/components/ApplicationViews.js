@@ -9,6 +9,7 @@ import { ItemDetail } from "./items/ItemDetail.js"
 import { ItemForm } from "./items/ItemForm.js"
 import { FriendForm } from "./friends/FriendForm.js"
 import { NoteForm } from "./notes/NoteForm"
+import { LogoutBtn } from "./logout/Logout.js"
 
 export const ApplicationViews = () => {
     return (
@@ -54,11 +55,12 @@ export const ApplicationViews = () => {
 
                     <Route exact path="/" render={props => <SortFriends {...props} />}>
                     </Route>
-
+                    <Route exact path="/logout" render={props => <LogoutBtn {...props} />}>
+                    </Route>
                 </ItemProvider>
             </FriendProvider>
 
-
+           
         </>
     )
 }

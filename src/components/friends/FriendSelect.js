@@ -8,7 +8,7 @@ import { ItemsContext } from "../items/ItemProvider.js"
 export const FriendSelect = () => {
   const { friends, getFriends, } = useContext(FriendsContext)
   const [selectedFriend, setSelectedFriend] = useState({})
-  const {getItemsByUserId, friendItems} = useContext(ItemsContext)
+  const {getItemsByFriendId, friendItems} = useContext(ItemsContext)
   const userId =  parseInt(sessionStorage.getItem("app_user_id"))
   // intial load, runs only one time.
   useEffect(() => {
@@ -18,7 +18,7 @@ export const FriendSelect = () => {
 
   // 
   useEffect(() => {
-    getItemsByUserId(selectedFriend)
+    getItemsByFriendId(selectedFriend)
     console.log("FriendID",selectedFriend)
     
   }, [selectedFriend])

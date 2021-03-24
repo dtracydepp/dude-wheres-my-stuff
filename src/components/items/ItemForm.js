@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const ItemForm = () => {
-  const { items, getItems, addItem, updateItem, getItemById } = useContext(ItemsContext)
+  const { getItems, addItem, updateItem, getItemById } = useContext(ItemsContext)
   const { friends, getFriends } = useContext(FriendsContext)
   const userId =  parseInt(sessionStorage.getItem("app_user_id"))
 
