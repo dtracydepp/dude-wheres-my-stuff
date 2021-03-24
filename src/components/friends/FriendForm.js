@@ -58,11 +58,11 @@ Define the intial state of the form inputs with useState()
   
       return (
         <form className="friendForm">
-            <h2 className="itemForm__title">New Friend</h2>
+            <h2 className="friendForm__title">New Friend</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="friendName">Friend Name:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="friend name" value={friend.friendName}/>
+                    <label htmlFor="friend">Friend Name:</label>
+                    <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="friend name" value={friend.friendName}/>
                 </div>
             </fieldset>
            

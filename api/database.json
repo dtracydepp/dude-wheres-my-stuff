@@ -5,8 +5,6 @@
       "name": "Tracy Depp",
       "id": 1
     }
-
-    
   ],
   "friends": [
     {
@@ -16,10 +14,12 @@
     {
       "id": 2,
       "friendName": "Amanda"
+    },
+    {
+      "friendName": "Dominick",
+      "id": 3
     }
-   
   ],
-
   "items": [
     {
       "id": 1,

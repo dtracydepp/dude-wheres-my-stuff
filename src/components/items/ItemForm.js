@@ -71,20 +71,20 @@ Define the intial state of the form inputs with useState()
             <h2 className="itemForm__title">New Item</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Item:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item name" value={item.itemName}/>
+                <label htmlFor="item">Item:</label>
+                    <input type="text" id="itemName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Name" value={item.itemName}/>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="desciption">Description:</label>
-                    <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="item description" value={item.description}/>
+                    <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Description" value={item.description}/>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="note">Note:</label>
-                    <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="item note" value={item.note}/>
+                    <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Note" value={item.note}/>
                 </div>
             </fieldset>
             <fieldset>
