@@ -10,17 +10,20 @@ export const FriendSelect = () => {
   const [selectedFriend, setSelectedFriend] = useState({})
   const {getItemsByUserId, friendItems} = useContext(ItemsContext)
 
+  // intial load, runs only one time.
   useEffect(() => {
     getFriends()
 
   }, [])
 
+  // 
   useEffect(() => {
     getItemsByUserId(selectedFriend)
-
+    console.log("FriendID",selectedFriend)
+    
   }, [selectedFriend])
 
-
+// when a friend is selected, I'm getting the value (friendId) of the selected friend
   const handleInputChange = (event) => {
     setSelectedFriend(event.target.value)
     
@@ -40,6 +43,7 @@ export const FriendSelect = () => {
         </select>
         { 
             friendItems.map((item) => {
+              console.log(item)
               //   key and item become properties on the object passed in as in argument
               return <ItemCard key={item.id} item={item} />
             })

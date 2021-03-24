@@ -18,7 +18,7 @@ export const ItemProvider = (props) => {
     }
 
     const getItemById = (id) => {
-        return fetch(`http://localhost:8088/items/${id}?_embed=friends`)
+        return fetch(`http://localhost:8088/items/${id}?_expand=friend`)
             .then(res => res.json())
             
           
@@ -41,22 +41,20 @@ export const ItemProvider = (props) => {
         .then(response => response.json())
         
     }
-    const addNote = item => {
-        // addNote function changes adds a note to items object
-        const completeNote = {
-           note: ""
-        }
-    
+    const addNote = (note,itemId) => {
+
+        
         //PATCH method edits/updates a single key:value pair in the database
-        return fetch(`http://localhost:8088/items/${item.id}`, {
+        return fetch(`http://localhost:8088/items/${itemId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(completeNote)
+            body: JSON.stringify({
+                note: note.note
+            })
         })
             .then(getItems)
-           
     
         }
 
