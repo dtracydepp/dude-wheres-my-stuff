@@ -8,6 +8,7 @@ export const Login = () => {
     const [loginUser, setLoginUser] = useState({ email: "" })
     const [existDialog, setExistDialog] = useState(false)
 
+// useHistory hook allows me to tell React which route 
     const history = useHistory()
 
     const handleInputChange = (event) => {
@@ -30,6 +31,7 @@ export const Login = () => {
             .then(exists => {
                 if (exists) {
                     sessionStorage.setItem(userStorageKey, exists.id)
+                    // using useHistory to push to new route
                     history.push("/")
                 } else {
                     setExistDialog(true)
