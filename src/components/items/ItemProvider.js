@@ -1,4 +1,4 @@
-// This component establishes what data can be used.
+// maintaining the state of item data
 
 import React, { useState, createContext } from "react"
 

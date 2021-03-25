@@ -25,7 +25,7 @@ Define the intial state of the Item form inputs with useState(). item is state v
     userId: userId
 
   });
-  //wait for data before button is active. ---Need more comments
+  //isLoading starts as true when page loads
   const [isLoading, setIsLoading] = useState(true);
 
  // useParams hook that allows me to extract value of the parameter from the URL, here I need the value of itemId
@@ -45,9 +45,10 @@ Define the intial state of the Item form inputs with useState(). item is state v
     getItems(userId).then(getFriends(userId)).then(() => {
       if (itemId) {
         getItemById(itemId)
-        // Add comments, not sure what is happening??
+        // giving whatever I grabbed from the database
           .then(item => {
             setItem(item)
+            // isLoading state variable set to false so button can't be clicked
             setIsLoading(false)
           })
       } else {
@@ -58,11 +59,12 @@ Define the intial state of the Item form inputs with useState(). item is state v
 
   //when a field changes, update state. The return will re-render and display based on the values in state
 
-  //Controlled component ---add comments
+  //Controlled component ---anytime input is changed, create an item based on previous state
   const handleControlledInputChange = (event) => {
     /* When changing a state object or array,
     always create a copy, make changes, and then set state.*/
     const newItem = { ...item }
+    // input being typed is grabbing the value 
     let selectedVal = event.target.value
     // forms always provide values as strings. But we want to save the ids as numbers. This will cover both item and friend ids
     if (event.target.id.includes("id")) {
@@ -138,7 +140,7 @@ Define the intial state of the Item form inputs with useState(). item is state v
           <label htmlFor="location">Assign to friend: </label>
           <select value={item.friendId} name="friendId" id="friendId" onChange={handleControlledInputChange} className="form-control" >
             <option value="0">Select a friend</option>
-            {/* map method over friends array to add key value pair to friend object?? */}
+            {/*map method on friends array, each time I map through grab the id of the friend from the object.*/}
             {friends.map(f => (
               <option key={f.id} value={f.id}>
                 {f.friendName}
@@ -148,10 +150,10 @@ Define the intial state of the Item form inputs with useState(). item is state v
         </div>
       </fieldset>
       <button className="btn btn-primary"
+    
         disabled={isLoading}
         onClick={event => {
           event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-          // add comments
           handleClickSaveNewItem()
         }}>
         {itemId ? "Save New Item" : "Add New Item"}</button>

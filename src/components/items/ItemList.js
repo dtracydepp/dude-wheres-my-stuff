@@ -1,3 +1,5 @@
+//   ItemList which renders individual item objects as HTML
+
 import React, { useContext, useEffect } from "react"
 import { ItemsContext } from "./ItemProvider.js"
 import { ItemCard } from "./ItemCard.js"
@@ -24,10 +26,10 @@ export const ItemList = () => {
   return (
     <div className="items">
       <h3>Where's My Stuff?</h3>
-      {/* map method over items array and key value pair added to item object?? */}
+      {/* map method on items array to add key value pair to item object */}
       {
         items.map((item) => {
-          //   key and item become properties on the object passed in as in argument ??
+          //   returning ItemCard and passing the item oject to the comp
           return <ItemCard key={item.id} item={item} />
         })
       }

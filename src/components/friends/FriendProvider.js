@@ -1,4 +1,4 @@
-// This component establishes what data can be used.
+//Maintaining the state of friend data
 
 import React, { useState, createContext } from "react"
 

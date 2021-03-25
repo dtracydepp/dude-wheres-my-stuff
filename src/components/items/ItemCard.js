@@ -1,3 +1,5 @@
+// *  ItemCard which renders individual item objects as HTML
+
 import React from "react"
 import "./Item.css"
 import { Link } from "react-router-dom"

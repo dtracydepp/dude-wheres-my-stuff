@@ -18,7 +18,7 @@ export const ItemDetail = () => {
 
   // function to delete item object
   const handleDelete = () => {
-    // delteItem function and passing the item.id so only the item on the item card selected will be deleted.
+    // deleteItem function and passing the item.id so only the item on the item card selected will be deleted.
     deleteItem(items.id)
       .then(() => {
         // using useHistory to push to new route
@@ -26,7 +26,7 @@ export const ItemDetail = () => {
       })
   }
 
-//  useEffect invoked--api call to getItemsById, passed itemId to get the value of the itemid 
+//  useEffect invoked--api call to getItemsById, passed itemId  
   useEffect(() => {
     getItemById(itemId)
       .then((response) => {

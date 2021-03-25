@@ -21,16 +21,16 @@ export const FriendSelect = () => {
 
   }, [])
 
-  // when changes(friendselected), useEffect invoked--api call to getItemsByFriendID, passed selectedFriend object as a variable to get the friendId of the selected friend??
+  // when changes(friendselected), useEffect invoked--api call to getItemsByFriendID, passed selectedFriend state variable.
   useEffect(() => {
     getItemsByFriendId(selectedFriend)
 
-// not sure why here?
+// will run anytime the data changes, friend selected
   }, [selectedFriend])
 
   // when a friend is selected, I'm getting the value (friendId) of the selected friend
   const handleInputChange = (event) => {
-    // invoked setSelectedFriend update function when friend is selected from dropdown
+    // invoked setSelectedFriend update function when friend is selected from dropdown, value is id of the friend
     setSelectedFriend(event.target.value)
 
   }
@@ -44,7 +44,7 @@ export const FriendSelect = () => {
         <select value="0" id="friendId" className="form-control" onChange={handleInputChange} >
           <option value="0">Select a friend</option>
           {/*  */}
-          {/* map method on friends array, friend object passed to add key value pair to of friend id to object. */}
+          {/* map method on friends array, each time I map through grab the id of the friend from the object. */}
           {friends.map((fr) =>
           // 
             <option key={fr.id} value={fr.id}>{fr.friendName}</option>)
@@ -54,7 +54,7 @@ export const FriendSelect = () => {
           // map method on friendItems array to add key value pair to item object
           friendItems.map((item) => {
 
-            //   key and item become properties on the object passed in as in argument
+            //  returning ItemCard and passing the item oject to the comp 
             return <ItemCard key={item.id} item={item} />
           })
         }
