@@ -1,3 +1,5 @@
+// used to save, add or edit item
+
 import React, { useContext, useEffect, useState } from "react"
 import { ItemsContext } from "../items/ItemProvider.js"
 import { useHistory, useParams } from 'react-router-dom';
@@ -109,6 +111,7 @@ Define the intial state of the Item form inputs with useState(). item is state v
     }
   }
 
+  // returns a item form to input item info an save or add new item
   return (
     <form className="itemForm">
       <h2 className="itemForm__title">New Item</h2>
@@ -135,7 +138,7 @@ Define the intial state of the Item form inputs with useState(). item is state v
           <label htmlFor="location">Assign to friend: </label>
           <select value={item.friendId} name="friendId" id="friendId" onChange={handleControlledInputChange} className="form-control" >
             <option value="0">Select a friend</option>
-            {/* Add comments */}
+            {/* map method over friends array to add key value pair to friend object?? */}
             {friends.map(f => (
               <option key={f.id} value={f.id}>
                 {f.friendName}

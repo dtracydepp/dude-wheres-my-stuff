@@ -36,7 +36,7 @@ export const FriendSelect = () => {
   }
 
 
-
+// returning dropdown box with friends, adding friendID to objects in array and when selected ItemCard is returned 
   return (
     <>
       <div className="friends">
@@ -44,13 +44,14 @@ export const FriendSelect = () => {
         <select value="0" id="friendId" className="form-control" onChange={handleInputChange} >
           <option value="0">Select a friend</option>
           {/*  */}
+          {/* map method on friends array, friend object passed to add key value pair to of friend id to object. */}
           {friends.map((fr) =>
           // 
             <option key={fr.id} value={fr.id}>{fr.friendName}</option>)
           }
         </select>
         {
-          // Add comment
+          // map method on friendItems array to add key value pair to item object
           friendItems.map((item) => {
 
             //   key and item become properties on the object passed in as in argument

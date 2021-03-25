@@ -58,6 +58,8 @@ Define the intial state of the note form inputs with useState(). note(object) is
           .then(() => history.push(`/items/detail/${itemId}`))
         }
       
+
+        // returns note form to save or add new note.
       return (
         <form className="itemForm">
             <fieldset>

@@ -34,6 +34,9 @@ export const ItemDetail = () => {
         setItems(response)
       })
   }, [])
+
+
+  // returns item details with buttons
   return (
     <section className="item">
       <h3 className="item__name">{items.itemName}</h3>

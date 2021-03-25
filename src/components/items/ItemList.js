@@ -14,17 +14,17 @@ export const ItemList = () => {
   const { items, getItems } = useContext(ItemsContext)
 
 
-  //useEffect - reach out to the world for something - API call for the items, invoking getItems; will only run one time at intial render because array is empty. passing userid so that only items for logged in user displays.
+  //useEffect - reach out to the world for something - API call for the items, invoking; will only run one time at intial render because array is empty. passing userid so that only items for logged in user displays.
   useEffect(() => {
     getItems(userId)
 
   }, [])
 
-
+// returns ItemCard with list of items borrowed
   return (
     <div className="items">
       <h3>Where's My Stuff?</h3>
-      {/* add comments */}
+      {/* map method over items array and key value pair added to item object?? */}
       {
         items.map((item) => {
           //   key and item become properties on the object passed in as in argument ??

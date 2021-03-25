@@ -58,7 +58,7 @@ Define the intial state of the friend form inputs with useState(). "friend(objec
       .then(() => history.push("/allfriends"))
   }
 
-
+// returns a form to input new friend and save to database
   return (
     <form className="friendForm">
       <h2 className="friendForm__title">New Friend</h2>
