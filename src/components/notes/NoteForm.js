@@ -6,20 +6,23 @@ import { useHistory, useParams } from 'react-router-dom';
 export const NoteForm = () => {
   const {getItems, addNote } = useContext(ItemsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
+   // useParams hook that allows me to extract value of the parameter from the URL, here I need the value of itemId
   const {itemId} = useParams()
   /*
 EVERYTIME STATE IS UPDATED THE COMP WILL RE-RENDER
-Define the intial state of the note form inputs with useState(). note(object) is the state variable, setNote is the update function that holds the state of note. 
+Define the intial state of the note form inputs with useState(). note(object) is the state variable, setNote is the update function.
 */
+// useState will hold and set the state of the note object. note will hold the data, setNote will modify the state of the note object when invoked.
 
   const [note, setNote] = useState({
     note: "" 
   });
 
+  // // useHistory hook allows me to tell React which route
   const history = useHistory();
 
   /*
-  Reach out to the world and get items state on initialization,runs one time. Passing userId so data will be specific to user logged in
+  Reach out to the world and getItems state on initialization,runs one time. Passing userId so data will be specific to user logged in
   */
   useEffect(() => {
     getItems(userId)
@@ -51,6 +54,7 @@ Define the intial state of the note form inputs with useState(). note(object) is
           //invoke addNote passing note and itemId arguments. So the new note added will be specific to the item selected
           //once complete, change the url and display the friend list
           addNote(note,itemId)
+          // pushes the new entry into the history stack---redirecting to another route
           .then(() => history.push(`/items/detail/${itemId}`))
         }
       

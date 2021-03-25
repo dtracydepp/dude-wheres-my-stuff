@@ -4,14 +4,16 @@ import { useHistory, useParams } from 'react-router-dom';
 import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const ItemForm = () => {
+    // Need data stored from fetch to use in this comp
   const { getItems, addItem, updateItem, getItemById } = useContext(ItemsContext)
   const { friends, getFriends } = useContext(FriendsContext)
+  
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
 
   /*EVERYTIME STATE IS UPDATED THE COMP WILL RE-RENDER
-Define the intial state of the Item form inputs with useState(). item is state variable, setItem is the update function that holds the state of item.
+Define the intial state of the Item form inputs with useState(). item is state variable, setItem is the update function.
 */
-
+// useState will hold and set the state of the item object. item will hold the data, setItem will modify the state of the item object when invoked.
   const [item, setItem] = useState({
     id: 0,
     itemName: "",
@@ -21,10 +23,13 @@ Define the intial state of the Item form inputs with useState(). item is state v
     userId: userId
 
   });
-  //wait for data before button is active. Look at the button to see how it's setting itself to disabled or not based on this state
+  //wait for data before button is active. ---Need more comments
   const [isLoading, setIsLoading] = useState(true);
 
+ // useParams hook that allows me to extract value of the parameter from the URL, here I need the value of itemId
   const { itemId } = useParams();
+
+  // useHistory hook allows me to tell React which route
   const history = useHistory();
 
   /*
@@ -33,11 +38,12 @@ Define the intial state of the Item form inputs with useState(). item is state v
   */
 
 
-  // Get items and friends. If itemId is in the URL, getItemById
+  // api call to getItems and then getFriends (userId passed to get only loggin in user data), If itemId is in the URL, invoke getItemById
   useEffect(() => {
     getItems(userId).then(getFriends(userId)).then(() => {
       if (itemId) {
         getItemById(itemId)
+        // Add comments, not sure what is happening??
           .then(item => {
             setItem(item)
             setIsLoading(false)
@@ -89,12 +95,14 @@ Define the intial state of the Item form inputs with useState(). item is state v
           friendId: parseInt(item.friendId),
           userId: parseInt(sessionStorage.getItem("app_user_id"))
         })
+             // using useHistory to push to new route
           .then(() => history.push(`/items/detail/${item.id}`))
       } else {
         //POST - add
         //invoke addItem passing item as an argument.
         //once complete, change the url and display the item list
         addItem(item)
+             // using useHistory to push to new route
           .then(() => history.push("/"))
       }
 

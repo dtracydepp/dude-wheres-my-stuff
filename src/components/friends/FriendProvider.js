@@ -2,12 +2,14 @@
 
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+// Create the context and can be imported and used by individual components that need data; empty warehouse
 export const FriendsContext = createContext()
 
 export const FriendProvider = (props) => {
+    // The functions below perform state tranistions in the database and then ensure the application state is in sync.
 
     // Define the state variable "friends" which will hold the data and the update function "setFriends" to be used to modify that state
+//    
     const [friends, setFriends] = useState([])
 
     const getFriends = (userId) => {
@@ -28,6 +30,7 @@ export const FriendProvider = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            // stringify() method converts the friend object or value to a JSON string
             body: JSON.stringify(friend)
         })
             .then(response => response.json())

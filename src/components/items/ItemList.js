@@ -10,11 +10,11 @@ export const ItemList = () => {
   //  // The useHistory hook tells React which route to visit. Tells React to render the item form component(not added yet).
   const history = useHistory()
 
-  // This state changes when `getItems()` is invoked below
+  // Need the items and getItems data stored from fetch to use in this comp
   const { items, getItems } = useContext(ItemsContext)
 
 
-  //useEffect - reach out to the world for something - API call for the items; will only run one time at intial render because array is empty. passing userid so that only items for logged in user displays.
+  //useEffect - reach out to the world for something - API call for the items, invoking getItems; will only run one time at intial render because array is empty. passing userid so that only items for logged in user displays.
   useEffect(() => {
     getItems(userId)
 

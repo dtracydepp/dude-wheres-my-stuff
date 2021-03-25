@@ -8,6 +8,7 @@ export const LogoutBtn = (props) => {
     return (
         <>
             <button
+            // pushes the new entry into the history stack---redirecting to another route
                 onClick={() => props.history.push("/login")}>
                 Logout
             </button>

@@ -20,20 +20,20 @@ export const ApplicationViews = () => {
                     <Route exact path="/">
                         <ItemList />
                     </Route>
-
+                    {/* Renders Item form when at http://localhost:300/items */}
                     <Route exact path="/items">
                         <ItemForm />
                     </Route>
-
+                    {/* Renders ItemDetail form when at http://localhost:300/items/detail  */}
                     {/* itemId will not show up in the URL,it is the parameter passed on the URL. /d+ is at the end to serve as a a variable to hold the actual value that be in the URL ex. /items/1. 1 is stored in itemId variable to be used and accessed in the comp.  */}
                     <Route exact path="/items/detail/:itemId(\d+)">
                         <ItemDetail />
                     </Route>
-
+                    {/* Renders ItemForm when at http://localhost:300/items/edit  */}
                     <Route path="/items/edit/:itemId(\d+)">
                         <ItemForm />
                     </Route>
-
+                    {/* Renders NoteForm when at http://localhost:300/items/create  */}
                     <Route path="/items/create/:itemId(\d+)">
                         <NoteForm />
                     </Route>
@@ -43,11 +43,11 @@ export const ApplicationViews = () => {
 
             <FriendProvider>
                 <ItemProvider>
-
+                    {/* Renders FriendForm when at http://localhost:300/friends  */}
                     <Route exact path="/friends">
                         <FriendForm />
                     </Route>
-
+                    {/* Renders FriendSelect"dropdown" when at http://localhost:300/allfriends  */}
                     <Route exact path="/allfriends">
                         <FriendSelect />
 

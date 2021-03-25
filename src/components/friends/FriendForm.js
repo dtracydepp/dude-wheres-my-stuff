@@ -3,25 +3,26 @@ import { useHistory } from 'react-router-dom';
 import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const FriendForm = () => {
+  // Need the getFriends and addFriend data stored from fetch to use in this comp
   const { getFriends, addFriend } = useContext(FriendsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
 
   /*EVERYTIME STATE IS UPDATED THE COMP WILL RE-RENDER
-Define the intial state of the friend form inputs with useState(). "friend(object with properties) is state variable, setFriend is the update function that holds the state of friend"
+Define the intial state of the friend form inputs with useState(). "friend(object with properties) is state variable, setFriend is the update function.
 */
-
+// useState will hold and set the state of the friend object. friend will hold the data, setFriend will modify the state of the friend object when invoked.
   const [friend, setFriend] = useState({
     id: 0,
     friendName: "",
     userId: userId
 
   });
-
+// useHistory hook allows me to tell React which route
   const history = useHistory();
 
   /*
   Reach out to the world and get friends state
-   on initialization, runs one time.
+   on initialization, runs one time. dependency array is empty only runs first time the comp renders
   */
   useEffect(() => {
     getFriends()
@@ -53,6 +54,7 @@ Define the intial state of the friend form inputs with useState(). "friend(objec
     //invoke addFriend passing friend as an argument.
     //once complete, change the url and display the friend list
     addFriend(friend)
+    // using useHistory to push to new route
       .then(() => history.push("/allfriends"))
   }
 

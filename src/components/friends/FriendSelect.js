@@ -8,25 +8,29 @@ import { ItemsContext } from "../items/ItemProvider.js"
 export const FriendSelect = () => {
   const { friends, getFriends, } = useContext(FriendsContext)
   // EVERYTIME STATE IS UPDATED THE COMP WILL RE-RENDER
+  // useState will hold and set the state of the selectedFriend object. SelectedFriend will hold the data, setSelectedFriend will modify the state of the selectedFriend object when invoked.
   const [selectedFriend, setSelectedFriend] = useState({})
+    // Need the getItemByFriendId and friendItems data stored from fetch to use in this comp
+    
   const { getItemsByFriendId, friendItems } = useContext(ItemsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
 
-  // intial load, runs only one time.Passing userId so data will be specific to user logged in
+  // intial load--api call to getFriends, runs only one time.Passing userId so data will be specific to user logged in, dependency array is empty, will only run the first time the comp renders.
   useEffect(() => {
     getFriends(userId)
 
   }, [])
 
-  // Add comment
+  // when changes(friendselected), useEffect invoked--api call to getItemsByFriendID, passed selectedFriend object as a variable to get the friendId of the selected friend??
   useEffect(() => {
     getItemsByFriendId(selectedFriend)
 
-
+// not sure why here?
   }, [selectedFriend])
 
   // when a friend is selected, I'm getting the value (friendId) of the selected friend
   const handleInputChange = (event) => {
+    // invoked setSelectedFriend update function when friend is selected from dropdown
     setSelectedFriend(event.target.value)
 
   }
@@ -41,6 +45,7 @@ export const FriendSelect = () => {
           <option value="0">Select a friend</option>
           {/*  */}
           {friends.map((fr) =>
+          // 
             <option key={fr.id} value={fr.id}>{fr.friendName}</option>)
           }
         </select>

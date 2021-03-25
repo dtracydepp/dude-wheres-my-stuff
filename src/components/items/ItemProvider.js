@@ -2,11 +2,11 @@
 
 import React, { useState, createContext } from "react"
 
-// The context is imported and used by individual components that need data
+// The context is created and can be imported and used by individual components that need data: empty warehouse
 export const ItemsContext = createContext()
 
 export const ItemProvider = (props) => {
-
+// / The functions below perform state tranistions in the database and then ensure the application state is in sync.
     // Define the state variable "items" which will hold the data and the function "setItems" to be used to modify that state
     const [items, setItems] = useState([])
     // Used in FriendSelect Compon---Define state variable "friendItems" which whold the data and the update function "setFriendItems" to be used to modify the state.
@@ -37,6 +37,7 @@ export const ItemProvider = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            // stringify() method converts the item object or value to a JSON string
             body: JSON.stringify(item)
         })
             .then(response => response.json())
@@ -51,6 +52,7 @@ export const ItemProvider = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            // stringify() method converts the note object or value to a JSON string
             body: JSON.stringify({
                 note: note.note
             })
