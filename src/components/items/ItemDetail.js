@@ -11,6 +11,8 @@ export const ItemDetail = () => {
   const { itemId } = useParams();
   const history = useHistory();
 
+
+  // Add comments
   const handleDelete = () => {
     deleteItem(items.id)
       .then(() => {
@@ -18,9 +20,8 @@ export const ItemDetail = () => {
       })
   }
 
-
+// Add comments
   useEffect(() => {
-    // console.log("useEffect", itemId)
     getItemById(itemId)
       .then((response) => {
         setItems(response)
@@ -29,9 +30,7 @@ export const ItemDetail = () => {
   return (
     <section className="item">
       <h3 className="item__name">{items.itemName}</h3>
-      {/* {console.log(items.friendId)} */}
       <div className="item__description">Description: {items.description}</div>
-      {/* NEED friendName to render not ID, need a getFriendbyID? .find or .map with friendid=id?, researching friends is  an array so use .map to get name */}
       <div className="friend__name">Who Has My Stuff: {items.friend?.friendName}</div>
       <div className="item__note">Note: { items?.note }</div>
       <button onClick={() => { history.push(`/items/create/${items.id}`) }}>

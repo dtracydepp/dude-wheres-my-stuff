@@ -25,7 +25,7 @@ export const ApplicationViews = () => {
                         <ItemForm />
                     </Route>
 
-
+                    {/* itemId will not show up in the URL,it is the parameter passed on the URL. /d+ is at the end to serve as a a variable to hold the actual value that be in the URL ex. /items/1. 1 is stored in itemId variable to be used and accessed in the comp.  */}
                     <Route exact path="/items/detail/:itemId(\d+)">
                         <ItemDetail />
                     </Route>
@@ -52,15 +52,16 @@ export const ApplicationViews = () => {
                         <FriendSelect />
 
                     </Route>
-
+                    {/* on "home page" SortFriends function returns sort by friend button that pushes to "/allfriends" */}
                     <Route exact path="/" render={props => <SortFriends {...props} />}>
                     </Route>
+                    {/* LogoutBtn function returns logout button and invokes sessionStorage.clear method then pushes to "/login" */}
                     <Route exact path="/logout" render={props => <LogoutBtn {...props} />}>
                     </Route>
                 </ItemProvider>
             </FriendProvider>
 
-           
+
         </>
     )
 }
