@@ -1,0 +1,37 @@
+.items {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 28%;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid white;
+    background-color: #1ae0e0;
+    
+}
+
+.item {
+    background-color: #1ae0e0;
+
+}
+
+.friend__name {
+    color: white;
+}
+
+.item__note {
+    color: white;
+}
+
+.item__description {
+    color: white;
+}
+
+.Link {
+    color:white;
+}
+
+.button {
+    background-color:  #1ae0e0;
+      
+     
+  }

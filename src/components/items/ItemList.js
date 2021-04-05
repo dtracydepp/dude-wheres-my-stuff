@@ -24,7 +24,7 @@ export const ItemList = () => {
 
 // returns ItemCard with list of items borrowed
   return (
-    <div className="items">
+    <div className="items__list">
       <h3>Where's My Stuff?</h3>
       {/* map method on items array to add key value pair to item object */}
       {
