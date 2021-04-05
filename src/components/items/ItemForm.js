@@ -22,7 +22,8 @@ Define the intial state of the Item form inputs with useState(). item is state v
     description: "",
     note: "",
     friendId: 0,
-    userId: userId
+    userId: userId,
+    text: ""
 
   });
   //isLoading starts as true when page loads
@@ -121,6 +122,12 @@ Define the intial state of the Item form inputs with useState(). item is state v
         <div className="form-group">
           <label htmlFor="item">Item:</label>
           <input type="text" id="itemName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Name" value={item.itemName} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="item">Item:</label>
+          <input type="text" id="text" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Name" value={item.itemName} />
         </div>
       </fieldset>
       <fieldset>

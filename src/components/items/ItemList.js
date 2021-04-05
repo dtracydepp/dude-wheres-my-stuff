@@ -9,8 +9,8 @@ import { useHistory } from "react-router-dom"
 export const ItemList = () => {
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
 
-  //  // The useHistory hook tells React which route to visit. Tells React to render the item form component(not added yet).
-  const history = useHistory()
+  //  // Not using..The useHistory hook tells React which route to visit. Tells React to render the item form component(not added yet).
+  // const history = useHistory()
 
   // Need the items and getItems data stored from fetch to use in this comp
   const { items, getItems } = useContext(ItemsContext)
