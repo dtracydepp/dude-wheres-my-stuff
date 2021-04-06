@@ -6,7 +6,7 @@ export const SortFriends = (props) => {
 
     return (
         <>
-            <button
+            <button className="sort_btn"
             // pushes the new entry into the history stack---redirecting to another route
                 onClick={() => props.history.push("/allfriends")}>
                 Sort by Friends

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FriendsContext } from "../friends/FriendProvider.js";
 
 export const FriendForm = () => {
-  // Need the getFriends and addFriend data stored from fetch to use in this comp
+  // Need the (getFriends--not using it but don't want to remove before review) and addFriend data stored from fetch to use in this comp
   const { getFriends, addFriend } = useContext(FriendsContext)
   const userId = parseInt(sessionStorage.getItem("app_user_id"))
 
@@ -21,12 +21,12 @@ Define the intial state of the friend form inputs with useState(). "friend(objec
   const history = useHistory();
 
   /*
-  Reach out to the world and get friends state
+  Not using but scared to removed it before code review. Reach out to the world and get friends state
    on initialization, runs one time. dependency array is empty only runs first time the comp renders
   */
-  useEffect(() => {
-    getFriends()
-  }, [])
+  // useEffect(() => {
+  //   getFriends()
+  // }, [])
 
   //when a field changes, update state. The return will re-render and display based on the values in state
 
@@ -62,17 +62,19 @@ Define the intial state of the friend form inputs with useState(). "friend(objec
   return (
     <form className="friendForm">
       <h2 className="friendForm__title">New Friend</h2>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
           <label htmlFor="friend">Friend Name:</label>
           <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Friend name" value={friend.friendName} />
         </div>
       </fieldset>
 
+   
       <button className="btn btn-primary"
         onClick={handleClickSaveNewFriend}>
         Save New Friend
             </button>
+          
     </form>
   )
 }

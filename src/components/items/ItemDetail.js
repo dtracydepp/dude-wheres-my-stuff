@@ -43,15 +43,17 @@ export const ItemDetail = () => {
       <div className="item__description">Description: {items.description}</div>
       <div className="friend__name">Who Has My Stuff: {items.friend?.friendName}</div>
       <div className="item__note">Note: { items?.note }</div>
-      <button onClick={() => { history.push(`/items/create/${items.id}`) }}>
+      <div>
+      <button className="note__btn" onClick={() => { history.push(`/items/create/${items.id}`) }}>
         Add Note
           </button>
-      <button onClick={() => {
+      <button className="edit__btn" onClick={() => {
         history.push(`/items/edit/${items.id}`)
       }}>Edit Item</button>
-      <button onClick={handleDelete}>
+      <button className="delete__btn" onClick={handleDelete}>
         Delete Item
           </button>
+      </div>
 
     </section>
   )

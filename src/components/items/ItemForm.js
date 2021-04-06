@@ -22,7 +22,7 @@ Define the intial state of the Item form inputs with useState(). item is state v
     description: "",
     note: "",
     friendId: 0,
-    userId: userId
+    userId: userId,
 
   });
   //isLoading starts as true when page loads
@@ -117,27 +117,27 @@ Define the intial state of the Item form inputs with useState(). item is state v
   return (
     <form className="itemForm">
       <h2 className="itemForm__title">New Item</h2>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
           <label htmlFor="item">Item:</label>
           <input type="text" id="itemName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Name" value={item.itemName} />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
           <label htmlFor="desciption">Description:</label>
           <input type="text" id="description" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Description" value={item.description} />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
           <label htmlFor="note">Note:</label>
           <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item Note" value={item.note} />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
-          <label htmlFor="location">Assign to friend: </label>
+          <label htmlFor="location">Assign to a Friend: </label>
           <select value={item.friendId} name="friendId" id="friendId" onChange={handleControlledInputChange} className="form-control" >
             <option value="0">Select a friend</option>
             {/*map method on friends array, each time I map through grab the id of the friend from the object.*/}

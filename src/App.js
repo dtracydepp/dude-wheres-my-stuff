@@ -13,7 +13,7 @@ export const App = () => (
         if (sessionStorage.getItem(userStorageKey)) {
           return (
             <>
-            <h3>dude, where's my stuff?</h3>
+            <img className="logo" src="DWMS_LOGO.png" alt="DWMS-Logo"/>
            <NavBar />
           <ApplicationViews />
             </>
