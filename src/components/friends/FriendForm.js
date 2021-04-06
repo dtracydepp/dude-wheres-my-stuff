@@ -62,17 +62,19 @@ Define the intial state of the friend form inputs with useState(). "friend(objec
   return (
     <form className="friendForm">
       <h2 className="friendForm__title">New Friend</h2>
-      <fieldset>
+      <fieldset className="custom__field">
         <div className="form-group">
           <label htmlFor="friend">Friend Name:</label>
           <input type="text" id="friendName" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Friend name" value={friend.friendName} />
         </div>
       </fieldset>
 
+   
       <button className="btn btn-primary"
         onClick={handleClickSaveNewFriend}>
         Save New Friend
             </button>
+          
     </form>
   )
 }

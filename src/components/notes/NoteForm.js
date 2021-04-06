@@ -62,10 +62,10 @@ Define the intial state of the note form inputs with useState(). note(object) is
         // returns note form to save or add new note.
       return (
         <form className="itemForm">
-            <fieldset>
+            <fieldset className="custom__field">
                 <div className="form-group">
                     <label htmlFor="itemNote">Note:</label>
-                    <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="item note" value={note.note}/>
+                    <input type="text" id="note" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Item note" value={note.note}/>
                 </div>
             </fieldset>
             
