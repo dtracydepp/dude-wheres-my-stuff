@@ -17,8 +17,11 @@ h3, h2{
  color: #1ae0e0
 }
 
-
-
+footer{
+  bottom:0;
+  color:  #1ae0e0;
+  text-align: center;
+}
 
 .App-logo {
   height: 40vmin;
